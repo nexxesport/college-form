@@ -92,7 +92,7 @@
 document.getElementById("registrationForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
-  fetch("PASTE_YOUR_WEB_APP_URL_HERE", {
+  fetch("https://script.google.com/macros/s/AKfycby9e7kvteGuhLT3nir8l4Snvj9-05fK5y_5CPFDc2mOnhIoy-yNOjcvpx1e1mHV6-FT/exec", {
     method: "POST",
     body: JSON.stringify({
       name: document.getElementById("name").value,
