@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>NexX Esports Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #ff6a00;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #ff6a00;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e65c00;
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .checkbox input {
+      width: auto;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>NexX Esports Registration</h2>
+
+  <form id="registrationForm">
+    <input type="text" placeholder="Student Name" id="name" required>
+    <input type="text" placeholder="Course & Semester" id="course" required>
+    <input type="text" placeholder="Form No (College Roll No)" id="formno" required>
+    <input type="text" placeholder="Mobile Number" id="mobile" required>
+    <input type="text" placeholder="Team Name" id="team" required>
+
+    <input type="text" placeholder="Game UID Leader" id="uid1" required>
+    <input type="text" placeholder="Player 2 UID" id="uid2" required>
+    <input type="text" placeholder="Player 3 UID" id="uid3" required>
+    <input type="text" placeholder="Player 4 UID" id="uid4" required>
+
+    <div class="checkbox">
+      <input type="checkbox" id="agree" required>
+      <label>I agree to Privacy Policy</label>
+    </div>
+
+    <button type="submit">Register Team</button>
+  </form>
+</div>
+
+<script>
+document.getElementById("registrationForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  fetch("PASTE_YOUR_WEB_APP_URL_HERE", {
+    method: "POST",
+    body: JSON.stringify({
+      name: document.getElementById("name").value,
+      course: document.getElementById("course").value,
+      formno: document.getElementById("formno").value,
+      mobile: document.getElementById("mobile").value,
+      team: document.getElementById("team").value,
+      uid1: document.getElementById("uid1").value,
+      uid2: document.getElementById("uid2").value,
+      uid3: document.getElementById("uid3").value,
+      uid4: document.getElementById("uid4").value,
+      agreed: document.getElementById("agree").checked
+    })
+  })
+  .then(res => res.text())
+  .then(data => {
+    alert("Registration Successful!");
+    document.getElementById("registrationForm").reset();
+  });
+});
+</script>
+
+</body>
+</html>
