@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>NexX Esports Registration</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -26,7 +27,7 @@
       color: #ff6a00;
     }
 
-    input, select {
+    input {
       width: 100%;
       padding: 10px;
       margin: 8px 0;
@@ -107,12 +108,16 @@ document.getElementById("registrationForm").addEventListener("submit", function(
       agreed: document.getElementById("agree").checked
     })
   })
-  .then(res => res.json())
-.then(data => {
-  alert("Registration Successful!");
-  document.getElementById("registrationForm").reset();
+  .then(response => response.json())
+  .then(data => {
+    alert("Registration Successful!");
+    document.getElementById("registrationForm").reset();
+  })
+  .catch(error => {
+    alert("Something went wrong!");
+    console.error(error);
+  });
 });
-
 </script>
 
 </body>
