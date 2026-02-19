@@ -107,11 +107,13 @@ document.getElementById("registrationForm").addEventListener("submit", function(
       agreed: document.getElementById("agree").checked
     })
   })
-  .then(res => res.text())
-  .then(data => {
-    alert("Registration Successful!");
-    document.getElementById("registrationForm").reset();
-  });
+  .then(res => res.json())
+.then(data => {
+  alert("Registration Successful!");
+  document.getElementById("registrationForm").reset();
+});
+
+  
 });
 </script>
 
